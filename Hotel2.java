@@ -1,0 +1,109 @@
+class Room {
+    String occupant;
+    Room nextRoom;
+}
+
+public class Hotel2 {
+
+    static Room front, rear;
+
+    public static void main (String[] argv)
+    {
+	makeList ();
+	predecessorPrint ("Elsa");
+    } //end-main
+
+    static void predecessorPrint (String name)
+    {
+
+	// In case the name is not in the list
+	Room pointer = front;
+	
+	boolean notOnList = true;
+	while (pointer != null) {
+	    if ( pointer.occupant.equals (name) ) {
+		notOnList = false;
+		break;
+	    }
+	    pointer = pointer.nextRoom;
+	}
+	if (notOnList)
+	{
+	    System.out.println (name + " is not on the list.");
+	    return;
+	}
+
+	// In case, the name is first and there is no predecessor
+	if ( front.occupant.equals(name) ) {
+	    System.out.println (name + " is the first in the list and has no predecessors.");
+	    return;
+	}
+	
+	pointer = front;
+	while (pointer != null) {
+	    if (pointer.occupant.equals (name)) {
+		break;
+	    }
+	    pointer = pointer.nextRoom;
+	}
+
+	Room predPointer = front;
+	while (predPointer.nextRoom != pointer) {
+	    //System.out.println ("predPointer.occupant=" + predPointer.occupant  + " predPointer=" + predPointer);
+	    predPointer = predPointer.nextRoom;
+	}
+
+	System.out.println ("Predecessor to " + name + " is " + predPointer.occupant);
+    }
+
+    static void printList ()
+    {
+	Room pointer = front;
+	while (pointer != null) {
+	    System.out.println (pointer.occupant);
+	    pointer = pointer.nextRoom;
+	}
+    }
+
+    static void printUpTo (String name) {
+
+	Room pointer = front;
+	while (pointer != null) {
+	    System.out.println (pointer.occupant);
+	    if (pointer.occupant == name) {
+		return;
+	    }
+	    pointer = pointer.nextRoom;
+	}
+
+    }
+
+
+    static void makeList ()
+    {
+	addToList ("Aiko");
+	addToList ("Boris");
+	addToList ("Caterina");
+	addToList ("Dayo");
+	addToList ("Elsa");
+	addToList ("Felix");
+	addToList ("Galen");
+    }
+
+
+    static void addToList (String name)
+    {
+	if (front == null) {
+	    front = rear = new Room ();
+	    front.occupant = name;
+	    return;
+	}
+
+	rear.nextRoom = new Room ();
+	rear = rear.nextRoom;
+	rear.occupant = name;
+	return;
+    }
+
+
+} // end-Hotel

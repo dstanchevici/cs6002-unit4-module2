@@ -11,8 +11,8 @@ public class Hotel {
     {
 	makeList ();
 	printList ();
-
-	//printUpTo (“Elsa”);
+	System.out.println ("----");
+	printUpTo ("Elsa");
 
     } //end-main
 
@@ -27,6 +27,15 @@ public class Hotel {
     }
 
     static void printUpTo (String name) {
+
+	Room pointer = front;
+	while (pointer != null) {
+	    System.out.println (pointer.occupant);
+	    if (pointer.occupant == name) {
+		return;
+	    }
+	    pointer = pointer.nextRoom;
+	}
 
     }
 
@@ -59,4 +68,3 @@ public class Hotel {
 
 
 } // end-Hotel
-
