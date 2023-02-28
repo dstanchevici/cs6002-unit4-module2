@@ -3,15 +3,60 @@ class Room {
     Room nextRoom;
 }
 
-public class Hotel2 {
+public class Hotel3 {
 
     static Room front, rear;
 
     public static void main (String[] argv)
     {
 	makeList ();
-	predecessorPrint ("Felix");
+	remove ("Galen");
+	printList ();
     } //end-main
+
+    static void remove (String name)
+    {
+	Room pointer = front;
+	
+	// In case the name is not in the list
+	boolean onList = false;
+	while (pointer != null) {
+	    if ( pointer.occupant.equals (name) ) {
+		onList = true;
+		break;
+	    }
+	    pointer = pointer.nextRoom;
+	}
+	if ( !onList ) {
+	    System.out.println (name + " is not on the list.");
+	    return;
+	}
+
+	// In case name is in first object
+	if ( front.occupant.equals(name) ) {
+	    front = front.nextRoom;
+	    return;
+	}
+
+	// In other cases
+	pointer = front;
+	while (pointer != null) {
+	    if (pointer.occupant.equals(name)) {
+		break;
+	    }
+	    pointer = pointer.nextRoom;
+	}
+
+	Room predPointer = front;
+	while (predPointer.nextRoom != pointer) {
+	    predPointer = predPointer.nextRoom;
+	}
+
+	// Remove the object with "name" by
+	// connecting predPoint to the object following name
+	predPointer.nextRoom = pointer.nextRoom;
+	
+    } // end-remove()
 
     static void predecessorPrint (String name)
     {
@@ -19,15 +64,15 @@ public class Hotel2 {
 	// In case the name is not in the list
 	Room pointer = front;
 	
-	boolean notOnList = true;
+	boolean onList = false;
 	while (pointer != null) {
 	    if ( pointer.occupant.equals (name) ) {
-		notOnList = false;
+		onList = true;
 		break;
 	    }
 	    pointer = pointer.nextRoom;
 	}
-	if (notOnList)
+	if ( !onList )
 	{
 	    System.out.println (name + " is not on the list.");
 	    return;
