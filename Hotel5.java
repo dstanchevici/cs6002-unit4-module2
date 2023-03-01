@@ -3,16 +3,28 @@ class Room {
     Room nextRoom;
 }
 
-public class Hotel4 {
+public class Hotel5 {
 
     static Room front, rear;
 
     public static void main (String[] argv)
     {
 	makeList ();
-	remove ("Galen");
-	addToList ("Hector");
+	System.out.println ("-------");
 	printList ();
+	
+	remove ("Galen");
+	System.out.println ("-------");
+	printList ();
+	
+	addToList ("Hector");
+	System.out.println ("-------");
+	printList ();
+
+	remove ("Aiko");
+	System.out.println ("-------");
+	printList ();
+	
     } //end-main
 
 
