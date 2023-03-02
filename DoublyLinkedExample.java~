@@ -1,0 +1,21 @@
+class ListItem {
+    String data;
+    ListItem next;
+    ListItem prev;
+}
+
+
+public class DoublyLinkedExample {
+
+    static ListItem front = null;
+    static ListItem rear = null;
+
+    public static void main (String[] argv)
+    {
+	makeList ();
+	printList ();
+	printReverse ();
+	System.out.println ( "item #3: " + get(3) ); // I wonder if it should be get(2)?
+    }
+
+}
