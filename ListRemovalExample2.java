@@ -13,6 +13,8 @@ public class ListRemovalExample2 {
 	printList ();
 	System.out.println ("**** Get Element ***");
 	System.out.println ("3rd element: " + get(2));
+	System.out.println ("**** Remove Someone Not On List ***");
+	remove ("Sarah");
 	remove ("Felix");
 	remove ("Aiko");
 	remove ("Galen");
@@ -38,7 +40,7 @@ public class ListRemovalExample2 {
 	boolean onList = false;
 
 	// Revised to eliminate break from while.
-	while ( (pointer != null) && (onList == false) ) {
+	while ( (pointer != null) && (!onList) ) {
 	    if ( pointer.data.equals (name) ) {
 		onList = true;
 		//break;
