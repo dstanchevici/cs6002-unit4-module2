@@ -3,7 +3,7 @@ class ListItem {
     ListItem next;
 }
 
-public class ListRemovalExample {
+public class ListRemovalExample2 {
 
     static ListItem front, rear;
 
@@ -34,12 +34,14 @@ public class ListRemovalExample {
     {
 	ListItem pointer = front;
 	
-	// In case the data is not in the list
+	// In case the name is not in the list
 	boolean onList = false;
-	while (pointer != null) {
+
+	// Revised to eliminate break from while.
+	while ( (pointer != null) && (onList == false) ) {
 	    if ( pointer.data.equals (name) ) {
 		onList = true;
-		break;
+		//break;
 	    }
 	    pointer = pointer.next;
 	}
@@ -48,7 +50,7 @@ public class ListRemovalExample {
 	    return;
 	}
 
-	// In case data is in first object
+	// In case name is in first object
 	if ( front.data.equals(name) ) {
 	    front = front.next;
 	    return;
@@ -56,10 +58,13 @@ public class ListRemovalExample {
 
 	// In other cases
 	pointer = front;
-	while (pointer != null) {
+	// Revised to eliminate break from while
+	while ( (pointer != null) &&  (!pointer.data.equals(name)) ) {
+	    /*
 	    if (pointer.data.equals(name)) {
 		break;
 	    }
+	    */
 	    pointer = pointer.next;
 	}
 

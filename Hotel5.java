@@ -24,7 +24,7 @@ public class Hotel5 {
 	remove ("Aiko");
 	System.out.println ("-------");
 	printList ();
-	
+
     } //end-main
 
 
