@@ -1,0 +1,7 @@
+public class DoublyLinkedExample2 {
+
+    public static void main (String[] argv)
+    {
+	DoublyLinkedList tourGroup = new DoublyLinkedList ();
+    }
+}
