@@ -1,0 +1,18 @@
+public class SortedList {
+
+    ListItem front = null;
+    ListItem rear = null;
+
+    public void add (String s)
+    {
+	// Empty list
+	if (front == null) {
+	    front = rear = new ListItem ();
+	    front.data = s;
+	    return;
+	}
+
+	
+    }
+
+}
