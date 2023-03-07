@@ -1,0 +1,26 @@
+// Unit 4, Module 2, Ex. 2.28
+
+import java.util.*;
+
+class PlayerInfo {
+    String name;
+    double pointsPerGame;
+}
+
+public class MultiDataList2 {
+
+    static LinkedList<PlayerInfo> players = new LinkedList<> ();
+    
+    public static void main (String[] argv)
+    {
+	addPlayer ("Kareem Abdul-Jabbar", 30.12);
+	addPlayer ("Wilt Chamberlain", 30.07);
+	addPlayer ("Elgin Baylor", 27.36);
+	addPlayer ("LeBron James", 27.16);
+	addPlayer ("Kevin Durant", 27.15);
+
+	printList ();
+    }
+
+
+}
