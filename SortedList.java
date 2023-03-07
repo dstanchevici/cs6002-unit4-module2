@@ -30,6 +30,7 @@ public class SortedList {
 	ListItem nextOne = new ListItem ();
 	nextOne.data = s;
 
+	
 	// Three cases
 	
 	// 1. Insert in front
@@ -46,6 +47,8 @@ public class SortedList {
 
 	}
 	// 3. In middle
+	/*
+	// This commented out version is for exercise 2.23  
 	else {
 	    //System.out.println ("---");
 	    //System.out.println ("listPtr=" + listPtr.data);
@@ -53,6 +56,19 @@ public class SortedList {
 	    listPtr.prev.next = nextOne;
 	    nextOne.prev = listPtr.prev;
 	    listPtr.prev = nextOne;
+	    nextOne.next = listPtr;
+	}
+	*/
+
+	// This version is for exercise 2.24
+	else {
+	    //System.out.println ("---");
+	    //System.out.println ("listPtr=" + listPtr.data);
+	    //System.out.println ("nextOne=" + nextOne.data);
+
+	    listPtr.prev = nextOne;
+	    listPtr.prev.next = nextOne;
+	    nextOne.prev = listPtr.prev;
 	    nextOne.next = listPtr;
 	}
 	
