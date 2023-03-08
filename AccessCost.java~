@@ -1,0 +1,15 @@
+// Unit 4, Module 2, ex. 2.33
+
+import java.util.*;
+
+public class AccessCost {
+
+    public static void main (String[] argv)
+    {
+	LinkedList<Integer> list = new LinkedList<> ();
+	for (int i=0; i<100000; i++) {
+	    list.add (i);
+	}
+    }
+
+}
